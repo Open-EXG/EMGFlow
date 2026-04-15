@@ -3,17 +3,13 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "emgflow"
+name = "emgflow-models"
 version = "0.1.0"
-description = "Core public release of EMGFlow models, dataset loaders, and fidelity evaluation."
+description = "Model-only release of EMGFlow generative backbones for sEMG synthesis."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "einops",
     "numpy",
-    "PyWavelets",
-    "scikit-learn",
-    "scipy",
     "torch",
 ]
 
@@ -21,4 +17,4 @@ dependencies = [
 include-package-data = true
 
 [tool.setuptools.packages.find]
-include = ["emgflow*", "EMG_fidelity*"]
+include = ["emgflow*"]

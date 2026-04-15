@@ -1,78 +1,61 @@
-# EMGFlow
+# EMGFlow Models
 
-This open-source branch is aligned with the paper `EMGFlow: Robust and Efficient Surface Electromyography Synthesis via Flow Matching`.
+Minimal model-only release of the generative backbones behind **EMGFlow: Robust and Efficient Surface Electromyography Synthesis via Flow Matching**.
 
-Following the paper scope, the public release keeps three core parts:
+This branch keeps only the `emgflow/model/` source tree plus a few showcase assets. Everything else from the research workspace has been stripped away.
 
-- `emgflow/model/`: conditional generative models for sEMG synthesis used in the paper
-- `emgflow/datasets/`: Ninapro dataset loading and preprocessing utilities
-- `EMG_fidelity/`: fidelity and downstream-evaluation package used to assess synthetic EMG quality
-- `preprocessing/`: raw NinaPro preprocessing scripts for converting source files into repository-ready formats
+## Why It Is Interesting
 
-Experiment-specific runners, ablation workspaces, temporary outputs, figures, and unrelated playground code are intentionally excluded from this branch.
+- Conditional **Flow Matching** for sEMG generation
+- Compact **DDPM / DDIM** baseline with the same 1D U-Net family
+- Lightweight **WGAN-GP** generator baseline
+- Shared building blocks for classifier-free guidance, EMA, attention, patch extraction, and sampling
 
-## Scope
+## Visuals
 
-The released code corresponds to the paper's core pipeline:
+Generated EMG evolution under Flow Matching:
 
-1. Sliding-window sEMG preprocessing and dataset loading
-2. Conditional EMG generation with Flow Matching and baseline generators
-3. Evaluation through feature-based fidelity metrics and downstream utility
+![Generated EMG evolution](assets/generated_label_5_evolution.png)
 
-The public model implementations are limited to the paper's main generative baselines:
+Distribution structure in feature space:
 
-- EMGFlow / Flow Matching
-- DDPM with DDIM or ancestral DDPM sampling
-- WGAN-GP
+![t-SNE view](assets/subj6_tsne.png)
 
-## Environment
+## Included Code
 
-The original development environment used Python 3.12.
+```text
+emgflow/
+  model/
+    DDPM.py
+    flow_matching.py
+    gan/
+    utils/
+```
+
+## Quick Start
 
 ```bash
 conda activate py312
 pip install -e .
 ```
 
-Main dependencies:
-
-- `torch`
-- `numpy`
-- `scipy`
-- `scikit-learn`
-- `PyWavelets`
-- `einops`
-
-## Dataset Roots
-
-Dataset roots are configured with environment variables:
-
-```bash
-export NINAPRO_DB2_ROOT=/path/to/DB2_npy
-export NINAPRO_DB4_ROOT=/path/to/DB4_npy
-export NINAPRO_DB6_ROOT=/path/to/DB6_npy
-export NINAPRO_DB7_ROOT=/path/to/DB7_npy
+```python
+from emgflow.model import DiffusionPatchEMG, PatchEMGUNet1D
+from emgflow.model import FlowMatchingPatchEMG, PureWGANGenerator1D
+from emgflow.model import ModelFactory
 ```
 
-Preprocessing scripts also use environment variables for raw-data input and processed-data output. See `preprocessing/README.md` for the full list.
+## Scope
 
-## Repository Layout
+This is a **model-only** branch.
 
-```text
-emgflow/
-  model/
-  datasets/
-  config/path.py
-EMG_fidelity/
-preprocessing/
-```
+It does **not** include:
 
-## Notes
-
-- This branch is a core-code release, not the full internal research workspace.
-- The paper mainly benchmarks three datasets; the public loaders kept here cover the repository's core Ninapro loaders.
-- The `preprocessing/` scripts are provided as utility scripts and may require local path edits before use.
-- Pretrained checkpoints, cached outputs, and experiment artifacts are not included.
+- dataset loaders
+- preprocessing pipelines
+- fidelity package
+- experiment runners
+- checkpoints or cached outputs
 
 ## License
 

@@ -1,54 +1,17 @@
 .env
 .venv/
 venv/
-conda-env/
 __pycache__/
 *.py[cod]
-*.so
 .DS_Store
 Thumbs.db
-.vscode/
 .idea/
+.vscode/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-
-# Build artifacts
+.ipynb_checkpoints/
 build/
 dist/
 *.egg-info/
-
-# Local experiment outputs
-checkpoints/
-outputs/
-runs/
-wandb/
-tensorboard/
-logs/
-tmp_db7_subject1_20260326/
-tmp_universal_weight_subspace_20260326/
-
-# Local data and caches
-fake_data/
-*.cache
-*.tmp
-*.log
-*.pt
-*.pth
-*.ckpt
-*.onnx
-*.npz
-
-# Notebook autosaves
-.ipynb_checkpoints/
 NN_EMGFLOW (1).pdf
-
-# Local research areas intentionally excluded from the open-source branch
-EXP_Augmentation/
-EXP_CrossformerRecipeCheck/
-EXP_FlowMatchingLab/
-EXP_meanflow_improvement/
-EXP_scan_w/
-GAN_trial/
-scripts/
-tests/
