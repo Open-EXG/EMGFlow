@@ -1,22 +1,17 @@
 #!/bin/bash
-
-# ================= 🔐 您的 Kaggle 凭证 (直接填在这里) =================
-# 您的用户名 (已帮您填好)
-MY_USERNAME="canhan"
-
-# 🔴 请将您的 Key 粘贴在下面引号内 (把原来的文字删掉)
-MY_KEY="KGAT_b5f9845c1e20b28db2332edc0bd77c8f"
+set -euo pipefail
 
 # ================= ⚙️ 下载配置 =================
 DATASET_ID="samirrana00/ninapro-db6"
-TARGET_DIR="/bigdata/emgdata_public/DB_raw/NinaPro_DB6"
+TARGET_DIR="${EMGFLOW_DB6_DOWNLOAD_DIR:-NinaPro_DB6}"
 ZIP_NAME="ninapro_db6_full.zip"
 # ===================================================================
 
-# 修复点：将 == 改为 =，兼容 zsh
-if [ "$MY_KEY" = "在这里粘贴您的Key" ]; then
-    echo "❌ 错误: 您忘记在脚本里填入 Kaggle Key 了！"
-    echo "请使用 nano 编辑此脚本，修改 MY_KEY 这一行。"
+MY_USERNAME="${KAGGLE_USERNAME:-}"
+MY_KEY="${KAGGLE_KEY:-}"
+
+if [ -z "$MY_USERNAME" ] || [ -z "$MY_KEY" ]; then
+    echo "❌ 错误: 请先设置环境变量 KAGGLE_USERNAME 和 KAGGLE_KEY。"
     exit 1
 fi
 

@@ -1,4 +1,5 @@
 import os
+import os
 from collections import defaultdict
 from pathlib import Path
 
@@ -7,10 +8,10 @@ import scipy.io
 
 # ================= 配置区域 =================
 # 原始数据路径 (存放所有 .mat 文件)
-SOURCE_DIR = Path("/bigdata/emgdata_public/DB_raw/NinaPro_DB6")
+SOURCE_DIR = Path(os.environ.get("EMGFLOW_DB6_SOURCE_DIR", "NinaPro_DB6"))
 
 # 输出路径
-TARGET_DIR = Path("/bigdata/emgdata_public/DB_raw/DB6_npy")
+TARGET_DIR = Path(os.environ.get("EMGFLOW_DB6_TARGET_DIR", "DB6_npy"))
 
 # DB6 采样率
 FS = 2000

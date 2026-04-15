@@ -1,4 +1,5 @@
 import json
+import os
 import tempfile
 import zipfile
 from pathlib import Path
@@ -9,11 +10,11 @@ from datasets import Dataset, Features, Sequence, Value
 
 # ================= 配置区域 =================
 # 1. 原始压缩包所在路径
-ZIP_SOURCE_DIR = Path("/bigdata/emgdata_public/DB_raw/Ninapro_DB4")
+ZIP_SOURCE_DIR = Path(os.environ.get("EMGFLOW_DB4_ZIP_SOURCE_DIR", "Ninapro_DB4"))
 
 # 2. 最终 Hugging Face Datasets 输出路径；总表保存为 TARGET_DIR / MASTER_DATASET_NAME
-TARGET_DIR = Path("/bigdata/emgdata_public/DB_raw/DB4_npy")
-MASTER_DATASET_NAME = "emg_db4_dataset"
+TARGET_DIR = Path(os.environ.get("EMGFLOW_DB4_TARGET_DIR", "DB4_npy"))
+MASTER_DATASET_NAME = os.environ.get("EMGFLOW_DB4_DATASET_NAME", "emg_db4_dataset")
 
 # 3. 参数设置
 FS = 2000

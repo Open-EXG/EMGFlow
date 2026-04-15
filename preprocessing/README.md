@@ -22,14 +22,54 @@ Included scripts:
 ## Usage Notes
 
 - These scripts were copied from the original internal preprocessing workspace.
-- Most scripts use absolute local paths at the top of the file.
-- Before running them, update the path configuration in each script to match your machine.
+- Paths are now configured through environment variables instead of hard-coded machine-specific paths.
 - DB2, DB4, and DB7 processing scripts export Hugging Face dataset artifacts.
 - DB6 processing exports structured `npy` files by subject/day/session.
+
+## Environment Variables
+
+Processing scripts:
+
+- `EMGFLOW_DB2_ZIP_SOURCE_DIR`
+- `EMGFLOW_DB2_TARGET_DIR`
+- `EMGFLOW_DB2_DATASET_NAME`
+- `EMGFLOW_DB4_ZIP_SOURCE_DIR`
+- `EMGFLOW_DB4_TARGET_DIR`
+- `EMGFLOW_DB4_DATASET_NAME`
+- `EMGFLOW_DB6_SOURCE_DIR`
+- `EMGFLOW_DB6_TARGET_DIR`
+- `EMGFLOW_DB7_ZIP_SOURCE_DIR`
+- `EMGFLOW_DB7_TARGET_DIR`
+- `EMGFLOW_DB7_DATASET_NAME`
+
+Read and verification scripts:
+
+- `EMGFLOW_DB2_DATASET_DIR`
+- `EMGFLOW_DB4_DATASET_DIR`
+- `EMGFLOW_DB7_DATASET_DIR`
+
+Download scripts:
+
+- `EMGFLOW_DB2_DOWNLOAD_DIR`
+- `EMGFLOW_DB6_DOWNLOAD_DIR`
+- `KAGGLE_USERNAME`
+- `KAGGLE_KEY`
 
 ## Typical Workflow
 
 1. Download or place the raw NinaPro files under your local raw-data directory.
-2. Edit the source and target path constants in the corresponding `process_db*.py` script.
+2. Export the source and target environment variables for the dataset you want to process.
 3. Run the processing script for the dataset you need.
 4. Optionally run the paired `read_*` or `verify_*` script to inspect the generated outputs.
+
+Example:
+
+```bash
+export EMGFLOW_DB4_ZIP_SOURCE_DIR=/path/to/Ninapro_DB4
+export EMGFLOW_DB4_TARGET_DIR=/path/to/DB4_npy
+export EMGFLOW_DB4_DATASET_DIR=/path/to/DB4_npy/emg_db4_dataset
+
+python preprocessing/process_db4.py
+python preprocessing/verify_db4.py
+python preprocessing/read_db4.py
+```

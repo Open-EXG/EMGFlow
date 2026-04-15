@@ -1,6 +1,10 @@
-# 创建目录
-mkdir -p /bigdata/emgdata_private/NinaPro_DB2
-cd /bigdata/emgdata_private/NinaPro_DB2
+#!/usr/bin/env bash
+set -euo pipefail
+
+TARGET_DIR="${EMGFLOW_DB2_DOWNLOAD_DIR:-NinaPro_DB2}"
+
+mkdir -p "$TARGET_DIR"
+cd "$TARGET_DIR"
 
 # 循环下载 S1 - S40
 # -x 16: 16个线程

@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
-DATA_DIR = "/bigdata/emgdata_public/DB_raw/DB4_npy"
+DATA_DIR = os.environ.get("EMGFLOW_DB4_TARGET_DIR", "DB4_npy")
 META_PATH = os.path.join(DATA_DIR, "emg_db4_dataset", "meta.json")
 
 DEFAULT_STANDARD_CONFIG_GLOBAL = {

@@ -54,6 +54,8 @@ export NINAPRO_DB6_ROOT=/path/to/DB6_npy
 export NINAPRO_DB7_ROOT=/path/to/DB7_npy
 ```
 
+Preprocessing scripts also use environment variables for raw-data input and processed-data output. See `preprocessing/README.md` for the full list.
+
 ## Repository Layout
 
 ```text

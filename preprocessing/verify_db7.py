@@ -6,7 +6,7 @@ import pandas as pd
 from tqdm import tqdm
 
 # ================= ⚙️ 数据集标准定义 =================
-DATA_DIR = '/bigdata/emgdata_public/DB_raw/DB7_npy'
+DATA_DIR = os.environ.get("EMGFLOW_DB7_TARGET_DIR", "DB7_npy")
 
 # DB7 只有 E1 和 E2（不像 DB2 有 E1/E2/E3）
 STANDARD_CONFIG = {

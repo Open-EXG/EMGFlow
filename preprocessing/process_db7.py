@@ -1,4 +1,5 @@
 import json
+import os
 import tempfile
 import zipfile
 from pathlib import Path
@@ -9,11 +10,11 @@ from datasets import Dataset, Features, Sequence, Value
 
 # ================= 配置区域 =================
 # 1. 原始压缩包所在路径
-ZIP_SOURCE_DIR = Path("/bigdata/emgdata_public/DB_raw/NinaPro_DB7")
+ZIP_SOURCE_DIR = Path(os.environ.get("EMGFLOW_DB7_ZIP_SOURCE_DIR", "NinaPro_DB7"))
 
 # 2. 最终 Hugging Face Datasets 输出路径；总表保存为 TARGET_DIR / MASTER_DATASET_NAME
-TARGET_DIR = Path("/bigdata/emgdata_public/DB_raw/DB7_npy")
-MASTER_DATASET_NAME = "emg_db7_dataset"
+TARGET_DIR = Path(os.environ.get("EMGFLOW_DB7_TARGET_DIR", "DB7_npy"))
+MASTER_DATASET_NAME = os.environ.get("EMGFLOW_DB7_DATASET_NAME", "emg_db7_dataset")
 
 # 3. 参数设置
 FS = 2000  # DB7 采样率也是 2000Hz

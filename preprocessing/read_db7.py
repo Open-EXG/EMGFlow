@@ -1,8 +1,11 @@
+import os
+
 import numpy as np
 from datasets import load_from_disk
 
 # 使用内存映射：不一次性读入全部数据，按需从磁盘映射
-ds = load_from_disk("/bigdata/emgdata_public/DB_raw/DB7_npy/emg_db7_dataset")
+DATASET_DIR = os.environ.get("EMGFLOW_DB7_DATASET_DIR", "DB7_npy/emg_db7_dataset")
+ds = load_from_disk(DATASET_DIR)
 
 
 def row_with_numpy(dataset, index):

@@ -1,4 +1,5 @@
 import json
+import os
 import tempfile
 import zipfile
 from pathlib import Path
@@ -9,11 +10,11 @@ from datasets import Dataset, Features, Sequence, Value
 
 # ================= 配置区域 =================
 # 1. 原始压缩包所在路径
-ZIP_SOURCE_DIR = Path("/bigdata/emgdata_public/DB_raw/NinaPro_DB2")
+ZIP_SOURCE_DIR = Path(os.environ.get("EMGFLOW_DB2_ZIP_SOURCE_DIR", "NinaPro_DB2"))
 
 # 2. 最终 Hugging Face Datasets 输出路径；总表保存为 TARGET_DIR / MASTER_DATASET_NAME
-TARGET_DIR = Path("/bigdata/emgdata_public/DB_raw/DB2_npy")
-MASTER_DATASET_NAME = "emg_db2_dataset"
+TARGET_DIR = Path(os.environ.get("EMGFLOW_DB2_TARGET_DIR", "DB2_npy"))
+MASTER_DATASET_NAME = os.environ.get("EMGFLOW_DB2_DATASET_NAME", "emg_db2_dataset")
 
 # 3. 参数设置
 FS = 2000
@@ -235,7 +236,7 @@ def pipeline_db2_auto_cleanup():
 # from datasets import load_from_disk
 # import numpy as np
 #
-# ds = load_from_disk("/bigdata/emgdata_public/DB_raw/DB2_npy/emg_db2_dataset")
+# ds = load_from_disk(os.path.join(os.environ["EMGFLOW_DB2_TARGET_DIR"], os.environ["EMGFLOW_DB2_DATASET_NAME"]))
 # with open(".../emg_db2_dataset/meta.json") as f:
 #     meta = json.load(f)
 # n_channels = meta["n_channels"]

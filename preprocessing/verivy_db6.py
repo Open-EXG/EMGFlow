@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 
 # ================= 配置 =================
-DATA_ROOT = Path("/bigdata/emgdata_public/DB_raw/DB6_npy")
+DATA_ROOT = Path(os.environ.get("EMGFLOW_DB6_TARGET_DIR", "DB6_npy"))
 # =======================================
 
 

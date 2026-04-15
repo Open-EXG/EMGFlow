@@ -18,7 +18,7 @@ python script/process_db7.py
 ```
 
 **输出**:
-- 位置: `/bigdata/emgdata_public/DB_raw/DB7_npy/emg_db7_dataset/`
+- 位置: `$EMGFLOW_DB7_TARGET_DIR/$EMGFLOW_DB7_DATASET_NAME`
 - 包含:
   - `data-00000-of-00004.arrow` 等 Arrow 格式数据分片
   - `dataset_info.json` - HF Dataset 格式描述

@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 # ================= ⚙️ 您的数据集标准定义 =================
 # 指向您存放 npy 文件的目录
-DATA_DIR = '/bigdata/emgdata_public/DB_raw/DB2_npy'
+DATA_DIR = os.environ.get("EMGFLOW_DB2_TARGET_DIR", "DB2_npy")
 
 # 既然 Ex A 未公开，那么剩下的就是标准。
 # 我们直接把您跑出来的这个范围定义为“金标准 (Golden Standard)”

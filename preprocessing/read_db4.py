@@ -1,10 +1,11 @@
 import json
+import os
 
 import numpy as np
 from datasets import load_from_disk
 
 # 使用内存映射：不一次性读入全部数据，按需从磁盘映射
-DATASET_DIR = "/bigdata/emgdata_public/DB_raw/DB4_npy/emg_db4_dataset"
+DATASET_DIR = os.environ.get("EMGFLOW_DB4_DATASET_DIR", "DB4_npy/emg_db4_dataset")
 META_PATH = f"{DATASET_DIR}/meta.json"
 
 ds = load_from_disk(DATASET_DIR)
