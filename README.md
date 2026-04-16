@@ -57,6 +57,7 @@ EMGFlow/
 ├── assets/
 │   ├── overview_pipeline.png
 │   ├── generated_label_5_evolution.png
+│   ├── generated_label_10_evolution_cropped.png
 │   ├── fidelity_bar_singlecol.png
 │   ├── guidance_summary_db7.png
 │   ├── tstr_results.png
@@ -150,7 +151,7 @@ The impact of classifier-free guidance on fidelity, standalone utility, augmenta
 We further visualize the generation evolution of a class-conditioned EMG sample under Flow Matching.
 
 <div align="center">
-<img width="700" alt="generated_evolution" src="assets/generated_label_5_evolution.png" />
+<img width="1100" alt="generated_evolution" src="assets/generated_label_10_evolution_cropped.png" />
 </div>
 
 ---
