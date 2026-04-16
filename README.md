@@ -10,7 +10,7 @@
 
 </div>
 
-> This repository contains the public model release of our paper: **"EMGFlow: Robust and Efficient Surface Electromyography Synthesis via Flow Matching"**. The current branch focuses on the core generative modeling code for surface EMG synthesis, including **EMGFlow**, **DDPM/DDIM**, and **WGAN-GP** baselines.
+> This repository contains the public model release of our paper:[**"EMGFlow: Robust and Efficient Surface Electromyography Synthesis via Flow Matching"**](https://arxiv.org/abs/2604.13685). The current branch focuses on the core generative modeling code for surface EMG synthesis, including **EMGFlow**, **DDPM/DDIM**, and **WGAN-GP** baselines.
 
 ## Overview
 
