@@ -1,7 +1,7 @@
 <div align="center">
 <h1>EMGFlow: Robust and Efficient Surface Electromyography Synthesis via Flow Matching</h1>
   
-<sup>1</sup> School of Biomedical Engineering, Shanghai Jiao Tong University, Shanghai, China
+MIND Lab, School of Biomedical Engineering, Shanghai Jiao Tong University
 
 </div>
 
