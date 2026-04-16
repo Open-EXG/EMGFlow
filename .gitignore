@@ -18,3 +18,13 @@ NN_EMGFLOW (1).pdf
 NN_EMGFLOW (2)/
 outputs/
 scripts/
+
+# Local research workspace content not included in the public model release
+README1.md
+EMG_fidelity/
+GAN_trial/
+checkpoints/
+tests/
+bench/
+view/
+EXP*/
