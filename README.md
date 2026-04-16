@@ -67,16 +67,12 @@ This public repository is a **model-only** release, so dataset files and preproc
 
 To assess synthetic EMG quality from multiple perspectives, the paper evaluates generated samples under:
 
-- **Fidelity metrics**, including feature-based quality indicators such as FID, IS, and CAS
+- **Fidelity metrics**, including feature-based quality indicators such as FID, IS, 和 CAS
 - **TSTR (Train on Synthetic, Test on Real)** to measure standalone utility of synthetic data
 - **Augmentation experiments** to measure how generated samples improve real-data training
 - **Guidance and solver analyses** to study controllability and efficiency trade-offs
 
-## TODO
 
-- Release a cleaner **experiment framework** for training and evaluation
-- Open-source the **fidelity evaluation package** used in the paper
-- Provide a finalized **requirements** file for reproducible setup
 
 ## Visualizations
 
@@ -121,3 +117,8 @@ If you find this work helpful, please consider citing our paper:
   year={2026}
 }
 ```
+## TODO
+
+- Release a cleaner **experiment framework** for training and evaluation
+- Open-source the **fidelity evaluation package** used in the paper
+- Provide a finalized **requirements** file for reproducible setup
