@@ -15,3 +15,6 @@ build/
 dist/
 *.egg-info/
 NN_EMGFLOW (1).pdf
+NN_EMGFLOW (2)/
+outputs/
+scripts/
