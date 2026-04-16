@@ -35,38 +35,6 @@ In this work, we introduce **Flow Matching** to sEMG generation and benchmark it
 - 📈 **Strong synthetic-data utility** under both augmentation and TSTR evaluation settings
 - 📦 Public release of the **core model implementations** used in EMGFlow
 
-## Code Structure
-```text
-EMGFlow/
-│
-├── emgflow/
-│   ├── __init__.py
-│   └── model/
-│       ├── DDPM.py                  # DDPM / DDIM model and 1D U-Net backbone
-│       ├── flow_matching.py         # EMGFlow model
-│       ├── gan/
-│       │   ├── __init__.py
-│       │   ├── common.py            # Shared GAN blocks
-│       │   └── pure_wgan_gp_1d.py   # WGAN-GP baseline
-│       └── utils/
-│           ├── common.py
-│           ├── factory.py
-│           ├── patchEMG_extract.py
-│           └── scheduler.py
-│
-├── assets/
-│   ├── overview_pipeline.png
-│   ├── generated_label_5_evolution.png
-│   ├── generated_label_10_evolution_cropped.png
-│   ├── fidelity_bar_singlecol.png
-│   ├── guidance_summary_db7.png
-│   ├── tstr_results.png
-│   └── ...
-│
-├── pyproject.toml
-└── README.md
-```
-
 ## Baselines
 
 Three generative model families are included in this release and aligned with the paper's main comparison setting:
@@ -104,25 +72,11 @@ To assess synthetic EMG quality from multiple perspectives, the paper evaluates 
 - **Augmentation experiments** to measure how generated samples improve real-data training
 - **Guidance and solver analyses** to study controllability and efficiency trade-offs
 
-## Installation
+## TODO
 
-```bash
-conda activate py312
-pip install -e .
-```
-
-Core dependencies:
-
-- `torch`
-- `numpy`
-
-## Quick Start
-
-```python
-from emgflow.model import DiffusionPatchEMG, PatchEMGUNet1D
-from emgflow.model import FlowMatchingPatchEMG, PureWGANGenerator1D
-from emgflow.model import ModelFactory
-```
+- Release a cleaner **experiment framework** for training and evaluation
+- Open-source the **fidelity evaluation package** used in the paper
+- Provide a finalized **requirements** file for reproducible setup
 
 ## Visualizations
 
@@ -134,10 +88,12 @@ The figure below compares representative real and generated EMG segments on DB7.
 </div>
 
 ### Distributional Alignment
-We also include a t-SNE visualization showing that generated samples preserve the class-wise structure of real EMG features.
+We also include t-SNE visualizations on **DB2**, **DB4**, and **DB7**, showing that generated samples preserve the class-wise structure of real EMG features across datasets.
 
 <div align="center">
-<img width="760" alt="tsne_db7" src="assets/subj6_tsne_styled_db7.png" />
+<img width="31%" alt="tsne_db2" src="assets/tsne_db2.png" />
+<img width="31%" alt="tsne_db4" src="assets/tsne_db4.png" />
+<img width="31%" alt="tsne_db7" src="assets/tsne_db7.png" />
 </div>
 
 ### Guidance Sensitivity
@@ -165,7 +121,3 @@ If you find this work helpful, please consider citing our paper:
   year={2026}
 }
 ```
-
-## 🙌 Acknowledgments
-
-Special thanks to the foundational works on **DDPM**, **DDIM**, and **Flow Matching**, which provide the methodological basis for this project and for modern continuous-time generative modeling research.
