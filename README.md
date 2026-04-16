@@ -1,12 +1,7 @@
 <div align="center">
-<h1>EMGFlow</h1>
-<h3>Robust and Efficient Surface Electromyography Synthesis via Flow Matching</h3>
-
-[Boxuan Jiang](mailto:data.j@sjtu.edu.cn)<sup>1</sup>, [Chenyun Dai](mailto:chenyundai@sjtu.edu.cn)<sup>1 :email:</sup>, and [Can Han](mailto:hancan@sjtu.edu.cn)<sup>1 :email:</sup>
-
+<h1>EMGFlow: Robust and Efficient Surface Electromyography Synthesis via Flow Matching</h1>
+  
 <sup>1</sup> School of Biomedical Engineering, Shanghai Jiao Tong University, Shanghai, China
-
-(<sup>:email:</sup>) Corresponding Author
 
 </div>
 
