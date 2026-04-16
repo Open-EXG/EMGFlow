@@ -117,3 +117,6 @@ If you find this work helpful, please consider citing our paper:
 - Release a cleaner **experiment framework** for training and evaluation
 - Open-source the **fidelity evaluation package** used in the paper
 - Provide a finalized **requirements** file for reproducible setup
+
+## Contact
+If you have any questions, please feel free to email data.j@sjtu.edu.cn.
